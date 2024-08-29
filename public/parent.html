@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parent Page</title>
+  </head>
+  <body style="background-color: rgb(255, 230, 234)">
+    <h1>Parent Page~🧚</h1>
+    <!-- iframe으로 자식 페이지 로드 -->
+    <iframe
+      src="http://localhost:3000/child.html"
+      width="90%"
+      height="400"
+      title="Child Frame"
+      id="childFrame"
+    ></iframe>
+
+    <script>
+      window.addEventListener("message", (event) => {
+        if (event.origin !== "http://localhost:3000") {
+          console.error(`Invalid origin: ${event.origin}`);
+          return;
+        }
+
+        alert(`Message from child: ${event.data}`);
+        event.source.postMessage("Hello from Parent!");
+      });
+    </script>
+  </body>
+</html>
