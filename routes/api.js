@@ -9,13 +9,13 @@ router.use((req, res, next) => {
   // res.header("Access-Control-Allow-Origin", "*");
 
   // 여러 교차출처 허용 할때
-  const origin = req.headers.origin;
-  if (origin && allowList.includes(origin)) {
-    res.header("Access-Control-Allow-Origin", origin);
-  }
+  // const origin = req.headers.origin;
+  // if (origin && allowList.includes(origin)) {
+  //   res.header("Access-Control-Allow-Origin", origin);
+  // }
 
   // X-token 헤더 허가코드
-  res.header("Access-Control-Allow-headers", "X-token");
+  // res.header("Access-Control-Allow-headers", "X-token");
 
   next();
 });
